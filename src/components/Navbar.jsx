@@ -1,9 +1,55 @@
 import React from 'react';
+import { NavLink } from 'react-router';
 
 const Navbar = () => {
     return (
-        <div>
-           
+        <div className='bg-base-100 shadow-sm' >
+           <div className="navbar  w-11/12 mx-auto">
+  <div className="navbar-start">
+    <div className="dropdown">
+      <div tabIndex={0} role="button" className="mr-2 lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+      </div>
+      <ul
+        tabIndex={0}
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+       <li>
+                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/' >Home</NavLink>
+            </li>
+            <li>
+                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/allPlant' >All Plants</NavLink>
+            </li>
+            <li>
+                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/addPlant' >Add Plant </NavLink>
+            </li>
+            <li>
+                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/myPlant' >My Plants</NavLink>
+            </li>
+      </ul>
+    </div>
+    <a className=" font-bold text-3xl">Plant <span className='text-[#0EA106]'>Care</span> </a>
+  </div>
+  <div className="navbar-center hidden lg:flex">
+    <ul className="menu menu-horizontal px-1">
+     <li>
+                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/' >Home</NavLink>
+            </li>
+            <li>
+                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/allPlant' >All Plants</NavLink>
+            </li>
+            <li>
+                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/addPlant' >Add Plant </NavLink>
+            </li>
+            <li>
+                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/myPlant' >My Plants</NavLink>
+            </li>
+    </ul>
+  </div>
+  <div className="navbar-end">
+   <div> <NavLink to='/register'> <button className="btn bg-[#0EA106] text-white">Register</button></NavLink>
+          <NavLink to='/login'> <button className="btn bg-[#0EA106] text-white">Login</button> </NavLink> </div>
+  </div>
+</div>
         </div>
     );
 };
