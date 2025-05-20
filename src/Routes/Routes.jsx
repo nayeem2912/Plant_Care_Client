@@ -4,7 +4,7 @@ import {
 } from "react-router";
 import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/Home";
-import ErrorPage from "../Pages/ErrorPage";
+
 import AddPlant from "../Pages/AddPlant";
 import AllPlant from "../Pages/AllPlant";
 import MyPlants from "../Pages/MyPlants";
@@ -12,13 +12,16 @@ import PlantDetails from "../Pages/PlantDetails";
 import UpdatePlant from "../Pages/UpdatePlant";
 import LogIn from "../Pages/LogIn";
 import Register from "../Pages/Register";
+import ErrorPage from "../Pages/ErrorPage";
 
 
  export const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
-    element:<ErrorPage></ErrorPage>,
+
+    errorElement:<ErrorPage></ErrorPage>,
+
     children: [
         {
             index:true,
