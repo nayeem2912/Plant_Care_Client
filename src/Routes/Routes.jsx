@@ -15,6 +15,7 @@ import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
 
 
+
  export const router = createBrowserRouter([
   {
     path: "/",
@@ -44,7 +45,7 @@ import ErrorPage from "../Pages/ErrorPage";
             Component:PlantDetails,
         },
         {
-             path:'/updatePlant',
+             path:'/updatePlant/:id',
             Component:UpdatePlant,
         }
     ]
