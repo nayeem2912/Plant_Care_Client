@@ -2,8 +2,10 @@ import React from 'react';
 
 const AddPlant = () => {
     return (
-        <div>
-            <h2 className='text-2xl'>Hello plant</h2>
+        <div className='w-11/12 mx-auto '>
+            <div></div>
+            <div></div>
+           
         </div>
     );
 };
