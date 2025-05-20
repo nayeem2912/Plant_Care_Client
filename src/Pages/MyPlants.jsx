@@ -1,6 +1,27 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
 const MyPlants = () => {
+
+    const handleDelete = () =>{
+        Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire({
+      title: "Deleted!",
+      text: "Your Plant has been deleted.",
+      icon: "success"
+    });
+  }
+});
+    }
     return (
         <div className='w-11/12 mx-auto mt-10 mb-28'>
             <div className="overflow-x-auto">
@@ -14,6 +35,8 @@ const MyPlants = () => {
         <th>Plants Name</th>
         <th>Category</th>
         <th>Health Status</th>
+        <th>Last Watered Date</th>
+        <th>Watering Frequency</th>
         <th></th>
       </tr>
     </thead>
@@ -32,13 +55,15 @@ const MyPlants = () => {
             </div>
           </div>
         </td>
-        <td>
-          Zemlak, Daniel and Leannon
-          
+        <td> 
+            Carroll Group
         </td>
         <td>Purple</td>
+        <th></th>
+        <th></th>
         <th>
-          <button className="btn text-white bg-[#0EA106] btn-sm">Plant Details</button>
+          <button className="btn py-6 btn-md  text-white bg-[#0EA106] ">Update Plant</button>
+          <button onClick={handleDelete} className="btn py-6 text-white bg-[#0EA106] btn-md">Delete Plant</button>
         </th>
       </tr>
       {/* row 2 */}
@@ -60,8 +85,11 @@ const MyPlants = () => {
           
         </td>
         <td>Red</td>
+        <th></th>
+        <th></th>
         <th>
-          <button className="btn text-white bg-[#0EA106] btn-sm">Plant Details</button>
+         <button className="btn py-6 btn-md  text-white bg-[#0EA106] ">Update Plant</button>
+          <button onClick={handleDelete} className="btn py-6 text-white bg-[#0EA106] btn-md">Delete Plant</button>
         </th>
       </tr>
       

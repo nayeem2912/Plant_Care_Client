@@ -14,6 +14,7 @@ const AllPlant = () => {
         <th>Plants Name</th>
         <th>Category</th>
         <th>Health Status</th>
+        <th>watering frequency</th>
         <th></th>
       </tr>
     </thead>
@@ -38,6 +39,9 @@ const AllPlant = () => {
         </td>
         <td>Purple</td>
         <th>
+            
+        </th>
+        <th>
           <button className="btn text-white bg-[#0EA106] btn-sm">Plant Details</button>
         </th>
       </tr>
@@ -60,6 +64,9 @@ const AllPlant = () => {
           
         </td>
         <td>Red</td>
+        <th>
+
+        </th>
         <th>
           <button className="btn text-white bg-[#0EA106] btn-sm">Plant Details</button>
         </th>
