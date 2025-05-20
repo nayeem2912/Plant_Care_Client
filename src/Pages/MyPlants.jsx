@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Swal from 'sweetalert2';
+
 
 const MyPlants = () => {
 
@@ -63,8 +65,14 @@ const MyPlants = () => {
         <th></th>
         <th>
           <button className="btn py-6 btn-md  text-white bg-[#0EA106] ">Update Plant</button>
-          <button onClick={handleDelete} className="btn py-6 text-white bg-[#0EA106] btn-md">Delete Plant</button>
+          
+          
+             <button   onClick={handleDelete} className="btn py-6 text-white bg-[#0EA106] btn-md">Delete Plant</button>
+             
+            
+          
         </th>
+         
       </tr>
       {/* row 2 */}
       <tr>

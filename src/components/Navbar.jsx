@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router';
+import { Tooltip as ReactTooltip } from "react-tooltip";
+
 
 const Navbar = () => {
     return (
@@ -27,7 +29,16 @@ const Navbar = () => {
             </li>
       </ul>
     </div>
-    <a className=" font-bold text-3xl">Plant <span className='text-[#0EA106]'>Care</span> </a>
+    
+      <a data-tooltip-id="my-tooltip-2" className=" font-bold text-3xl">Plant <span className='text-[#0EA106]'>Care</span> </a>
+      <ReactTooltip
+        id="my-tooltip-2"
+        place="bottom"
+        variant="info"
+        content="Thank you for visiting our website!"
+      />
+   
+    
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -46,8 +57,21 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-   <div> <NavLink to='/register'> <button className="btn bg-[#0EA106] text-white">Register</button></NavLink>
-          <NavLink to='/login'> <button className="btn bg-[#0EA106] text-white">Login</button> </NavLink> </div>
+   <div> <NavLink to='/register'> <button data-tooltip-id="my-tooltip-1" className="btn bg-[#0EA106] text-white">Register</button></NavLink>
+    <ReactTooltip
+                        id="my-tooltip-1"
+                        place="bottom"
+                        variant="info"
+                        content="Register Now"
+                      /> 
+
+          <NavLink to='/login'> <button data-tooltip-id="my-tooltip-3" className="btn bg-[#0EA106] text-white">Login</button> </NavLink>
+          <ReactTooltip
+                        id="my-tooltip-3"
+                        place="bottom"
+                        variant="info"
+                        content="Login Now"
+                      />  </div>
   </div>
 </div>
         </div>
