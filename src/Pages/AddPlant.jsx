@@ -1,13 +1,24 @@
+import { format } from 'date-fns';
 import React from 'react';
+import Swal from 'sweetalert2';
 
 const AddPlant = () => {
+  const handleAdd = e =>{
+    e.preventDefault();
+    Swal.fire({
+  title: "Add New Plant Successfully!",
+  icon: "success",
+  draggable: true
+});
+  }
     return (
         <div className='w-11/12 mx-auto '>
-            <div className='text-center mt-10 mb-16'>
+            <div className='text-center mt-10 space-y-4 mb-16'>
                 <p className='font-semibold text-[#0EA106] text-xl'>Fill out the form below to add a new plant to your collection. Include its name, type, photo, and care details to start tracking its growth and health right away.</p>
+                <p className='text-xl font-semibold'>Date:    {format(new Date(),"PPPP . pp",)}</p>
             </div>
             <div className='mt-10 mb-28'>
-                <form  className='space-y-5' >
+                <form onSubmit={handleAdd} className='space-y-5' >
                 <div className='grid grid-cols-1  md:grid-cols-2 gap-6 '>
                     <fieldset className="fieldset bg-base-200 border border-base-200 rounded-box p-4">
   <label className="label font-bold text-lg">Plant Name</label>
