@@ -5,6 +5,8 @@ import TipsSection from '../components/TipsSection';
 import EasyGrowPlant from '../components/EasyGrowPlant';
 
 const Home = () => {
+
+    
     return (
         <div>
             <BannerSlider></BannerSlider>
