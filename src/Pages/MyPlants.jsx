@@ -65,8 +65,8 @@ const MyPlants = () => {
         <th></th>
         <th></th>
         <th>
-          <button className="btn py-6 btn-md  text-white bg-[#0EA106] ">Update Plant</button>
-          
+          <Link to='/updatePlant/:id'>
+         <button className="btn py-6 btn-md  text-white bg-[#0EA106] ">Update Plant</button></Link>
           
              <button   onClick={handleDelete} className="btn py-6 text-white bg-[#0EA106] btn-md">Delete Plant</button>
              

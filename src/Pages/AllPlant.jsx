@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const AllPlant = () => {
     return (
@@ -42,7 +43,8 @@ const AllPlant = () => {
             
         </th>
         <th>
-          <button className="btn text-white bg-[#0EA106] btn-sm">Plant Details</button>
+          <Link to='/plantDetails'>
+          <button className="btn text-white bg-[#0EA106] btn-sm">Plant Details</button></Link>
         </th>
       </tr>
       {/* row 2 */}
