@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 
 const AllPlant = () => {
+  const plants = useLoaderData();
+  console.log(plants)
     return (
          <div className='w-11/12 mx-auto mt-10 mb-28'>
             <div className="overflow-x-auto">
@@ -21,65 +23,40 @@ const AllPlant = () => {
       </tr>
     </thead>
     <tbody>
-      {/* row 1 */}
-      <tr>
+
+      {
+        plants.map((plant, index) => <tr key={plant._id}>
         <th>
-          1
+         {index + 1}
         </th>
         <td>
           <div className="flex items-center gap-3">
            
             <div>
-              <div className="font-bold">Hart Hagerty</div>
+              <div className="font-bold">{plant.plantName}</div>
               
             </div>
           </div>
         </td>
         <td>
-          Zemlak, Daniel and Leannon
-          
+         {plant.category}
         </td>
-        <td>Purple</td>
-        <th>
-            
-        </th>
-        <th>
-
-        </th>
+        <td>{plant.health}</td>
+        <td>
+          {plant.watering}
+        </td>
+       <td>
+        {plant.care}
+       </td>
         <th>
           <Link to='/plantDetails'>
           <button className="btn text-white bg-[#0EA106] btn-sm">Plant Details</button></Link>
         </th>
-      </tr>
-      {/* row 2 */}
-      <tr>
-        <th>
-         2
-        </th>
-        <td>
-          <div className="flex items-center gap-3">
-           
-            <div>
-              <div className="font-bold">Brice Swyre</div>
-              
-            </div>
-          </div>
-        </td>
-        <td>
-          Carroll Group
-          
-        </td>
-        <td>Red</td>
-        <th>
-
-        </th>
-        <th>
-          
-        </th>
-        <th>
-          <button className="btn text-white bg-[#0EA106] btn-sm">Plant Details</button>
-        </th>
-      </tr>
+      </tr> )
+      }
+      
+      
+     
       
       
     </tbody>

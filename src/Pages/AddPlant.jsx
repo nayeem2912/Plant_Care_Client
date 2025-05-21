@@ -26,6 +26,8 @@ const AddPlant = () => {
   icon: "success",
   draggable: true
 });
+
+form.reset();
        }
      })
 

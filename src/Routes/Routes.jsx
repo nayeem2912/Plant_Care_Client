@@ -13,6 +13,7 @@ import UpdatePlant from "../Pages/UpdatePlant";
 import LogIn from "../Pages/LogIn";
 import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
+import Loading from "../components/Loading";
 
 
 
@@ -34,6 +35,8 @@ import ErrorPage from "../Pages/ErrorPage";
         },
         {
             path:'/allPlant',
+            hydrateFallbackElement: <Loading></Loading> , 
+            loader: () => fetch('http://localhost:3000/plants') ,
             Component:AllPlant,
         },
         {
