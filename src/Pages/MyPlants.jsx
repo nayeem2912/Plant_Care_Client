@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Link } from 'react-router';
 
 import Swal from 'sweetalert2';
+import { AuthContext } from '../Provider/AuthContext';
 
 
 const MyPlants = () => {
+     const {user} = use(AuthContext);
+   
+     const [userData, setUserData] = useState([]);
+     console.log(userData)
+
+     useEffect(() => {
+      if(user?.email){
+         fetch(`http://localhost:3000/plants/by-user?email=${user.email}`)
+      .then(res => res.json())
+      .then(data => {
+        setUserData(data);
+        console.log(data)
+      })
+      }  
+     }, [user])
+
+
 
     const handleDelete = () =>{
         Swal.fire({
@@ -45,25 +63,26 @@ const MyPlants = () => {
     </thead>
     <tbody>
       {/* row 1 */}
-      <tr>
+     {
+      userData.map((plant, index) =>  <tr key={plant._id}>
         <th>
-          1
+          {index + 1}
         </th>
         <td>
           <div className="flex items-center gap-3">
            
             <div>
-              <div className="font-bold">Hart Hagerty</div>
+              <div className="font-bold">{plant.plantName}</div>
               
             </div>
           </div>
         </td>
         <td> 
-            Carroll Group
+            {plant.category}
         </td>
-        <td>Purple</td>
-        <th></th>
-        <th></th>
+        <td>{plant.health}</td>
+        <td>{plant.lastDate}</td>
+        <td>{plant.watering}</td>
         <th>
           <Link to='/updatePlant/:id'>
          <button className="btn py-6 btn-md  text-white bg-[#0EA106] ">Update Plant</button></Link>
@@ -74,34 +93,10 @@ const MyPlants = () => {
           
         </th>
          
-      </tr>
-      {/* row 2 */}
-      <tr>
-        <th>
-         2
-        </th>
-        <td>
-          <div className="flex items-center gap-3">
-           
-            <div>
-              <div className="font-bold">Brice Swyre</div>
-              
-            </div>
-          </div>
-        </td>
-        <td>
-          Carroll Group
-          
-        </td>
-        <td>Red</td>
-        <th></th>
-        <th></th>
-        <th>
-          <Link to='/updatePlant/:id'>
-         <button className="btn py-6 btn-md  text-white bg-[#0EA106] ">Update Plant</button></Link>
-          <button onClick={handleDelete} className="btn py-6 text-white bg-[#0EA106] btn-md">Delete Plant</button>
-        </th>
-      </tr>
+      </tr>)
+     }
+    
+      
       
       
     </tbody>

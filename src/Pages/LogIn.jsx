@@ -1,13 +1,41 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../Provider/AuthContext';
+import toast from 'react-hot-toast';
+import Swal from 'sweetalert2';
 
 const LogIn = () => {
+  const {signIn} = use(AuthContext)
+
+  const handleLogin = e => {
+    e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        signIn(email, password)
+        .then(result => {
+          const user = result.user;
+          if(user){
+            Swal.fire({
+  title: "Login successful!",
+  icon: "success",
+  draggable: true
+});
+          }
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            toast.error(errorCode ,errorMessage)
+          });
+  }
+
     return (
         <div>
               <div className='max-w-sm  mx-auto mt-14 lg:mt-36'>
             <div className="card bg-green-600 w-full max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
-       <form  >
+       <form onSubmit={handleLogin} >
        <fieldset className="fieldset">
           <label className="label font-bold text-white text-xl">Email</label>
           <input type="email"   name='email' className="input" placeholder="Email" required />

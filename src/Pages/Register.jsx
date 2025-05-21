@@ -1,7 +1,39 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../Provider/AuthContext';
+import toast from 'react-hot-toast';
+import Swal from 'sweetalert2';
 
 const Register = () => {
+
+     const {createUser, setUser} =use(AuthContext)
+
+
+   const handleRegister = e =>{
+      e.preventDefault();
+      const form = e.target;
+      const email = form.email.value;
+      const password = form.password.value;
+      console.log(email,password)
+      createUser(email, password)
+      .then(result => {
+        const user = result.user;
+        setUser(user);
+        if(user){
+          Swal.fire({
+  title: "Registration successful!",
+  icon: "success",
+  draggable: true
+});
+        }
+      })
+      .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+   toast(errorCode, errorMessage)
+  });
+   }
+
     return (
         <div className='p-10'>
              <div className='flex  justify-center items-center min-h-screen'>
@@ -9,7 +41,7 @@ const Register = () => {
         <h2 className="font-semibold text-2xl text-center">
       Register your account
     </h2>
-  <form  className="card-body">
+  <form onSubmit={handleRegister}  className="card-body">
     <fieldset className="fieldset">
       <label className="label font-bold text-white text-xl">Name</label>
       <input type="text" name='name' className="input" placeholder="Name" />
