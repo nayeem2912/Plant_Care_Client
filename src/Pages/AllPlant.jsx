@@ -3,7 +3,11 @@ import { Link, useLoaderData } from 'react-router';
 
 const AllPlant = () => {
   const plants = useLoaderData();
-  console.log(plants)
+  
+  const handleDetails = id => {
+    console.log(id)
+  }
+   
     return (
          <div className='w-11/12 mx-auto mt-10 mb-28'>
             <div className="overflow-x-auto">
@@ -49,8 +53,8 @@ const AllPlant = () => {
         {plant.care}
        </td>
         <th>
-          <Link to='/plantDetails'>
-          <button className="btn text-white bg-[#0EA106] btn-sm">Plant Details</button></Link>
+          <Link to={`/plantDetails/${plant._id}`}>
+          <button onClick={() => handleDetails(plant._id)} className="btn text-white bg-[#0EA106] btn-sm">Plant Details</button></Link>
         </th>
       </tr> )
       }
