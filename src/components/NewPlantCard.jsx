@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const NewPlantCard = ({plant}) => {
-    const {photo, plantName, description} = plant || {}
+    const {photo, plantName, description, _id} = plant || {}
     return (
         <div className=''>
     <div className="card  bg-base-100 card-xl  shadow-sm">
@@ -11,8 +12,9 @@ const NewPlantCard = ({plant}) => {
     </div>
     <h2 className="font-bold text-[#0EA106] text-center text-2xl">{plantName}</h2>
     <p className=' text-center font-medium'>{description}</p>
-
-    <button className="btn bg-[#0EA106] text-white btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl">Plant Details</button>
+   <Link to={`/plantDetails/${_id}`}>
+    <button className="btn bg-[#0EA106] ml-24 md:ml-18 text-white btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl">Plant Details</button>
+    </Link>
 
   </div>
 </div>
