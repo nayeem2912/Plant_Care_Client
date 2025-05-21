@@ -27,6 +27,8 @@ import Loading from "../components/Loading";
     children: [
         {
             index:true,
+            hydrateFallbackElement: <Loading></Loading>,
+            loader: () => fetch('http://localhost:3000/plants/latest'),
             Component:Home,
         },
         {
