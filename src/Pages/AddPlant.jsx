@@ -5,11 +5,31 @@ import Swal from 'sweetalert2';
 const AddPlant = () => {
   const handleAdd = e =>{
     e.preventDefault();
-    Swal.fire({
+    const form = e.target ;
+     const formData = new FormData(form);
+     const newPlant = Object.fromEntries(formData.entries());
+    
+
+
+     fetch('http://localhost:3000/plants',{
+             method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newPlant)
+         })
+     .then(res => res.json())
+     .then(data => {
+       if(data.insertedId){
+             Swal.fire({
   title: "Add New Plant Successfully!",
   icon: "success",
   draggable: true
 });
+       }
+     })
+
+
   }
     return (
         <div className='w-11/12 mx-auto '>
@@ -22,7 +42,7 @@ const AddPlant = () => {
                 <div className='grid grid-cols-1  md:grid-cols-2 gap-6 '>
                     <fieldset className="fieldset bg-base-200 border border-base-200 rounded-box p-4">
   <label className="label font-bold text-lg">Plant Name</label>
-  <input type="text" name='name' className="input w-full" placeholder="Enter Plant Name" />
+  <input type="text" name='plantName' className="input w-full" placeholder="Enter Plant Name" />
 
 </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
@@ -44,18 +64,18 @@ const AddPlant = () => {
                       <label className="label font-bold text-lg">Category</label>
   <select name='category' defaultValue="Enter Plant Category" className="select w-full">
   <option  disabled={true}>Enter Plant Category</option>
-  <option value="succulent">Succulent</option>
-  <option value="fern">Fern</option>
-  <option value="flowering">Flowering</option>
-  <option value="herb">Herb</option>
-  <option value="cactus">Cactus</option>
-  <option value="indoor">Indoor</option>
-  <option value="outdoor">Outdoor</option>
-  <option value="air-purifying">Air Purifying</option>
-  <option value="bonsai">Bonsai</option>
-  <option value="climber">Climber</option>
-  <option value="foliage">Foliage</option>
-  <option value="aquatic">Aquatic</option>
+  <option value="Succulent">Succulent</option>
+  <option value="Fern">Fern</option>
+  <option value="Flowering">Flowering</option>
+  <option value="Herb">Herb</option>
+  <option value="Cactus">Cactus</option>
+  <option value="Indoor">Indoor</option>
+  <option value="Outdoor">Outdoor</option>
+  <option value="Air-Purifying">Air Purifying</option>
+  <option value="Bonsai">Bonsai</option>
+  <option value="Climber">Climber</option>
+  <option value="Foliage">Foliage</option>
+  <option value="Aquatic">Aquatic</option>
 </select>
 
 </fieldset>
@@ -64,28 +84,28 @@ const AddPlant = () => {
  <select name='care' defaultValue="Enter Plant Care Level" className="select w-full">
   <option  disabled={true}>Enter Plant Care Level</option>
    <option value="very-easy">Very Easy (low maintenance)</option>
-  <option value="easy">Easy</option>
-  <option value="moderate">Moderate</option>
-  <option value="challenging">Challenging</option>
-  <option value="difficult">Difficult (high maintenance)</option>
-  <option value="expert">Expert Only</option>
+  <option value="Easy">Easy</option>
+  <option value="Moderate">Moderate</option>
+  <option value="Challenging">Challenging</option>
+  <option value="Difficult">Difficult (high maintenance)</option>
+  <option value="Expert Only">Expert Only</option>
 </select>
 
 </fieldset>
 
 <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Health Status</label>
-   <select name='watering' defaultValue="Enter Plant Health Status" className="select w-full">
+   <select name='health' defaultValue="Enter Plant Health Status" className="select w-full">
   <option  disabled={true}>Enter Plant Health Status </option>
-    <option value="healthy">Healthy</option>
-  <option value="thriving">Thriving</option>
-  <option value="new-growth">Showing New Growth</option>
-  <option value="minor-issues">Minor Issues (e.g., yellow leaves)</option>
-  <option value="recovering">Recovering from Stress</option>
-  <option value="needs-care">Needs Attention</option>
-  <option value="pest-affected">Pest-Affected</option>
-  <option value="diseased">Diseased</option>
-  <option value="dormant">Dormant (not actively growing)</option>
+    <option value="Healthy">Healthy</option>
+  <option value="Thriving">Thriving</option>
+  <option value="Showing New Growth">Showing New Growth</option>
+  <option value="Minor Issues">Minor Issues (e.g., yellow leaves)</option>
+  <option value="Recovering from Stress">Recovering from Stress</option>
+  <option value="Needs Attention">Needs Attention</option>
+  <option value="Pest-Affected">Pest-Affected</option>
+  <option value="Diseased">Diseased</option>
+  <option value="Dormant">Dormant (not actively growing)</option>
 </select>
   </fieldset>
 
@@ -94,27 +114,27 @@ const AddPlant = () => {
   <label className="label font-bold text-lg">Watering Frequency </label>
   <select name='watering' defaultValue="Enter Plant Watering Frequency" className="select w-full">
   <option  disabled={true}>Enter Plant Watering Frequency </option>
-    <option value="daily">Every day</option>
-  <option value="every-2-days">Every 2 days</option>
-  <option value="every-3-days">Every 3 days</option>
-  <option value="twice-a-week">Twice a week</option>
-  <option value="weekly">Once a week</option>
-  <option value="every-10-days">Every 10 days</option>
-  <option value="fortnightly">Every 2 weeks</option>
-  <option value="monthly">Once a month</option>
-  <option value="rarely">Rarely (every 1–2 months)</option>
+    <option value="Every day">Every day</option>
+  <option value="Every-2-days">Every 2 days</option>
+  <option value="Every-3-days">Every 3 days</option>
+  <option value="Twice-a-week">Twice a week</option>
+  <option value="Weekly">Once a week</option>
+  <option value="Every-10-days">Every 10 days</option>
+  <option value="Every 2 weeks">Every 2 weeks</option>
+  <option value="Once a month">Once a month</option>
+  <option value="Rarely">Rarely (every 1–2 months)</option>
 </select>
 
 </fieldset>
   <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Last Watered Date</label>
-  <input type="date" name='last-watering-date' className="input w-full" placeholder="Enter Photo URL" />
+  <input type="date" name='lastDate' className="input w-full" placeholder="Enter Photo URL" />
   </fieldset>
 
 
   <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Next Watering Date </label>
-  <input type="date" name='next-watering-date' className="input w-full" placeholder="Enter Photo URL" />
+  <input type="date" name='nextDate' className="input w-full" placeholder="Enter Photo URL" />
   </fieldset>
 
 
