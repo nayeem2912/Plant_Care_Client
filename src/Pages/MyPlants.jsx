@@ -54,7 +54,6 @@ const MyPlants = () => {
 
 
       const remainingPlants = userData.filter(p => p._id !== id);
-      console.log(remainingPlants)
      setUserData(remainingPlants);
     
   }
@@ -65,7 +64,7 @@ const MyPlants = () => {
             <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
-    <thead className='bg-green-400'>
+    <thead >
       <tr>
         <th>
           No

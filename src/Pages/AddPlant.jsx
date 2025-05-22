@@ -47,12 +47,12 @@ form.reset();
                 <div className='grid grid-cols-1  md:grid-cols-2 gap-6 '>
                     <fieldset className="fieldset bg-base-200 border border-base-200 rounded-box p-4">
   <label className="label font-bold text-lg">Plant Name</label>
-  <input type="text" name='plantName' className="input w-full" placeholder="Enter Plant Name" />
+  <input type="text" name='plantName' className="input w-full" placeholder="Enter Plant Name" required />
 
 </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Image</label>
-  <input type="text" name='photo' className="input w-full" placeholder="Enter Plant Image" />
+  <input type="text" name='photo' className="input w-full" placeholder="Enter Plant Image" required />
 
 </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
@@ -67,7 +67,7 @@ form.reset();
 </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
                       <label className="label font-bold text-lg">Category</label>
-  <select name='category' defaultValue="Enter Plant Category" className="select w-full">
+  <select name='category' defaultValue="Enter Plant Category" className="select w-full" required>
   <option  disabled={true}>Enter Plant Category</option>
   <option value="Succulent">Succulent</option>
   <option value="Fern">Fern</option>
@@ -86,21 +86,21 @@ form.reset();
 </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Care Level</label>
- <select name='care' defaultValue="Enter Plant Care Level" className="select w-full">
+ <select name='care' defaultValue="Enter Plant Care Level" className="select w-full" required>
   <option  disabled={true}>Enter Plant Care Level</option>
    <option value="very-easy">Very Easy (low maintenance)</option>
   <option value="Easy">Easy</option>
   <option value="Moderate">Moderate</option>
   <option value="Challenging">Challenging</option>
   <option value="Difficult">Difficult (high maintenance)</option>
-  <option value="Expert Only">Expert Only</option>
+  <option value="Expert">Expert Only</option>
 </select>
 
 </fieldset>
 
 <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Health Status</label>
-   <select name='health' defaultValue="Enter Plant Health Status" className="select w-full">
+   <select name='health' defaultValue="Enter Plant Health Status" className="select w-full" required>
   <option  disabled={true}>Enter Plant Health Status </option>
     <option value="Healthy">Healthy</option>
   <option value="Thriving">Thriving</option>
@@ -117,7 +117,7 @@ form.reset();
 
   <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Watering Frequency </label>
-  <select name='watering' defaultValue="Enter Plant Watering Frequency" className="select w-full">
+  <select name='watering' defaultValue="Enter Plant Watering Frequency" className="select w-full" required>
   <option  disabled={true}>Enter Plant Watering Frequency </option>
     <option value="Every day">Every day</option>
   <option value="Every-2-days">Every 2 days</option>
@@ -133,19 +133,19 @@ form.reset();
 </fieldset>
   <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Last Watered Date</label>
-  <input type="date" name='lastDate' className="input w-full" placeholder="Enter Photo URL" />
+  <input type="date" name='lastDate' className="input w-full" placeholder="Enter Photo URL" required />
   </fieldset>
 
 
   <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Next Watering Date </label>
-  <input type="date" name='nextDate' className="input w-full" placeholder="Enter Photo URL" />
+  <input type="date" name='nextDate' className="input w-full" placeholder="Enter Photo URL" required />
   </fieldset>
 
 
   <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Description</label>
-  <input type="text" name='description' className="input w-full" placeholder="Enter Plant Details" />
+  <input type="text" name='description' className="input w-full" placeholder="Enter Plant Details" required />
   </fieldset>
                    
                 </div>

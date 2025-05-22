@@ -11,7 +11,7 @@ const TipsSection = () => {
                 <p className='text-lg font-semibold'>  Mastering plant care means knowing what not to do. These common mistakes can stunt your plant's growth—learn how to avoid them.</p>
             </div>
             <div className='grid mt-20 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
-                <div className="card  bg-base-100 card-xl  shadow-sm">
+                <div className="card  bg-base-300 card-xl  shadow-sm">
   <div className="card-body">
   <div className='flex justify-center'>
     <img className='w-50 h-50 rounded-xl' src="/assets/overwatering.jpg" alt="" />
@@ -22,7 +22,7 @@ const TipsSection = () => {
   </div>
 </div>
 
-<div className="card  bg-base-100 card-xl  shadow-sm">
+<div className="card  bg-base-300 card-xl  shadow-sm">
   <div className="card-body">
   <div className='flex justify-center'>
     <img className='w-50 h-50 rounded-xl' src="/assets/no sunlight.jpg" alt="" />
@@ -33,7 +33,7 @@ const TipsSection = () => {
   </div>
 </div>
 
-<div className="card  bg-base-100 card-xl  shadow-sm">
+<div className="card  bg-base-300 card-xl  shadow-sm">
   <div className="card-body">
   <div className='flex justify-center'>
     <img className='w-50 h-50 rounded-xl' src="/assets/no dranage.jpg" alt="" />

@@ -1,16 +1,22 @@
-import React from 'react';
+import React  from 'react';
 import { Link, useLoaderData } from 'react-router';
+
+
 
 const AllPlant = () => {
   const plants = useLoaderData();
   
+
+ 
+  
    
     return (
          <div className='w-11/12 mx-auto mt-10 mb-28'>
+          
             <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
-    <thead className='bg-green-400'>
+    <thead >
       <tr>
         <th>
           No

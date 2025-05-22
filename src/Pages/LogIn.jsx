@@ -74,7 +74,7 @@ const LogIn = () => {
 
     return (
         <div>
-              <div className='max-w-sm  mx-auto mt-14 lg:mt-36'>
+              <div className='max-w-xs  mx-auto mt-14 lg:mt-36'>
             <div className="card bg-green-600 w-full max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
        <form onSubmit={handleLogin} >

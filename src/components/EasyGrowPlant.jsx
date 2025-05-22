@@ -10,7 +10,7 @@ const EasyGrowPlant = () => {
                 <p className='text-lg font-semibold'> Just starting out? These reliable, beginner-friendly plants are beautiful, tough, and hard to kill.</p>
             </div>
             <div className='grid mt-20 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
-                <div className="card  bg-base-100 card-xl  shadow-sm">
+                <div className="card  bg-base-300 card-xl  shadow-sm">
   <div className="card-body">
   <div className='flex justify-center'>
     <img className='w-50 h-50 rounded-xl ' src="/assets/Sansevieria.jpg" alt="" />
@@ -21,7 +21,7 @@ const EasyGrowPlant = () => {
   </div>
 </div>
 
-<div className="card  bg-base-100 card-xl  shadow-sm">
+<div className="card  bg-base-300 card-xl  shadow-sm">
   <div className="card-body">
   <div className='flex justify-center'>
     <img className='w-50 h-50 rounded-xl ' src="/assets/zz plant.jpg" alt="" />
@@ -32,7 +32,7 @@ const EasyGrowPlant = () => {
   </div>
 </div>
 
-<div className="card  bg-base-100 card-xl  shadow-sm">
+<div className="card  bg-base-300 card-xl  shadow-sm">
   <div className="card-body">
   <div className='flex justify-center'>
     <img className='w-50 h-50 rounded-xl ' src="/assets/spider-plant.jpg" alt="" />
