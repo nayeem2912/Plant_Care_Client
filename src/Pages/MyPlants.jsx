@@ -15,7 +15,7 @@ const MyPlants = () => {
 
      useEffect(() => {
       if(user?.email){
-         fetch(`http://localhost:3000/plants/by-user?email=${user.email}`)
+         fetch(`https://mango-server-green.vercel.app/plants/by-user?email=${user.email}`)
       .then(res => res.json())
       .then(data => {
         setUserData(data);
@@ -38,7 +38,7 @@ const MyPlants = () => {
 }).then((result) => {
   if (result.isConfirmed) {
 
-     fetch(`http://localhost:3000/plants/${id}`,{
+     fetch(`https://mango-server-green.vercel.app/plants/${id}`,{
                     method: 'DELETE'
                 } )
      .then(res => res.json())

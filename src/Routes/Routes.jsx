@@ -29,7 +29,7 @@ import PrivateRoute from "../Provider/PrivateRoute";
         {
             index:true,
             hydrateFallbackElement: <Loading></Loading>,
-            loader: () => fetch('http://localhost:3000/plants/latest'),
+            loader: () => fetch('https://mango-server-green.vercel.app/plants/latest'),
             Component:Home,
         },
         {
@@ -39,7 +39,7 @@ import PrivateRoute from "../Provider/PrivateRoute";
         {
             path:'/allPlant',
             hydrateFallbackElement: <Loading></Loading> , 
-            loader: () => fetch('http://localhost:3000/plants') ,
+            loader: () => fetch('https://mango-server-green.vercel.app/plants') ,
             Component:AllPlant,
         },
         {
@@ -49,13 +49,13 @@ import PrivateRoute from "../Provider/PrivateRoute";
         {
             path:'/plantDetails/:id',
             hydrateFallbackElement: <Loading></Loading> ,
-            loader: ({params}) => fetch(`http://localhost:3000/plants/${params.id}`) ,
+            loader: ({params}) => fetch(`https://mango-server-green.vercel.app/plants/${params.id}`) ,
             element: <PrivateRoute> <PlantDetails></PlantDetails> </PrivateRoute>,
         },
         {
              path:'/updatePlant/:id',
               hydrateFallbackElement: <Loading></Loading> ,
-            loader: ({params}) => fetch(`http://localhost:3000/plants/${params.id}`) ,
+            loader: ({params}) => fetch(`https://mango-server-green.vercel.app/plants/${params.id}`) ,
             Component:UpdatePlant,
         }
     ]

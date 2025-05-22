@@ -14,7 +14,7 @@ const UpdatePlant = () => {
         const updatedPlant= Object.fromEntries(formData.entries());
         
 
-        fetch(`http://localhost:3000/plants/${_id}`, {
+        fetch(`https://mango-server-green.vercel.app/plants/${_id}`, {
               method: 'PUT', 
             headers: {
                 'content-type': 'application/json'
