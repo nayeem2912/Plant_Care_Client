@@ -1,12 +1,15 @@
-import React, { use } from 'react';
-import { Link } from 'react-router';
+import React, { use, useState } from 'react';
+import { Link,  useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthContext';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
 
 const Register = () => {
+  
+    const navigate = useNavigate()
 
-     const {createUser, setUser} =use(AuthContext)
+     const {createUser, setUser, updateUser} =use(AuthContext);
+      const[nameError, setNameError]= useState("")
 
 
    const handleRegister = e =>{
@@ -14,11 +17,29 @@ const Register = () => {
       const form = e.target;
       const email = form.email.value;
       const password = form.password.value;
-      console.log(email,password)
+      const name = form.name.value;
+      const photo = form.photo.value;
+
+       if (name.length < 5) {
+        setNameError("Name should be more then 5 character");
+        return;
+      } else {
+        setNameError("");
+      }
+      
       createUser(email, password)
       .then(result => {
         const user = result.user;
-        setUser(user);
+        updateUser({displayName: name, photoURL: photo})
+        .then(() => {
+           setUser({...user,displayName: name, photoURL: photo });
+           navigate("/")
+        })
+        .catch(error => {
+          setUser(user)
+          toast.error(error)
+        })
+        
         if(user){
           Swal.fire({
   title: "Registration successful!",
@@ -45,9 +66,9 @@ const Register = () => {
     <fieldset className="fieldset">
       <label className="label font-bold text-white text-xl">Name</label>
       <input type="text" name='name' className="input" placeholder="Name" />
-      {/* {
-        nameError && <p className="text-xs text-error">{nameError}</p>
-      } */}
+      {
+        nameError && <p className="text-xs text-black">{nameError}</p>
+      }
       <label className="label font-bold text-white text-xl">Photo URL</label>
       <input type="text" name='photo' className="input" placeholder="Photo Url" />
       <label className="label font-bold text-white text-xl">Email</label>
@@ -103,7 +124,7 @@ const Register = () => {
       <button type='submit' className="btn btn-neutral mt-4">Register</button>
       <p className="font-semibold text-center pt-5">
           Already Have An Account ?{" "}
-          <Link className="text-secondary" to="/login">
+          <Link className="text-white underline" to="/login">
             Login
           </Link>
         </p>

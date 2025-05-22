@@ -62,7 +62,7 @@ form.reset();
 </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Name</label>
-  <input type="text" name='name' className="input w-full" placeholder="Enter Your Name" />
+  <input type="text" name='name' value={user ? `${user?.displayName}`: " "} readOnly className="input w-full" placeholder="Enter Your Name" />
 
 </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">

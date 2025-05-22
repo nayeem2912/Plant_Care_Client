@@ -1,11 +1,13 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthContext';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
 
 const LogIn = () => {
-  const {signIn} = use(AuthContext)
+  const {signIn} = use(AuthContext);
+  const location = useLocation()
+    const navigate = useNavigate()
 
   const handleLogin = e => {
     e.preventDefault();
@@ -15,6 +17,7 @@ const LogIn = () => {
         signIn(email, password)
         .then(result => {
           const user = result.user;
+           navigate(`${location.state? location.state : "/"}`)
           if(user){
             Swal.fire({
   title: "Login successful!",

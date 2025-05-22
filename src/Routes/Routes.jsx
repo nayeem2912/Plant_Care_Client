@@ -14,6 +14,7 @@ import LogIn from "../Pages/LogIn";
 import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import Loading from "../components/Loading";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 
 
@@ -33,7 +34,7 @@ import Loading from "../components/Loading";
         },
         {
             path:'/addPlant',
-            Component:AddPlant,
+            element:<PrivateRoute><AddPlant></AddPlant> </PrivateRoute> ,
         },
         {
             path:'/allPlant',
@@ -43,13 +44,13 @@ import Loading from "../components/Loading";
         },
         {
              path:'/myPlant',
-            Component:MyPlants,
+            element:<PrivateRoute> <MyPlants></MyPlants> </PrivateRoute>,
         },
         {
             path:'/plantDetails/:id',
             hydrateFallbackElement: <Loading></Loading> ,
             loader: ({params}) => fetch(`http://localhost:3000/plants/${params.id}`) ,
-            Component:PlantDetails,
+            element: <PrivateRoute> <PlantDetails></PlantDetails> </PrivateRoute>,
         },
         {
              path:'/updatePlant/:id',
