@@ -1,8 +1,11 @@
 import { format } from 'date-fns';
-import React from 'react';
+import React, { use } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../Provider/AuthContext';
 
 const AddPlant = () => {
+    const {user} = use(AuthContext)
+
   const handleAdd = e =>{
     e.preventDefault();
     const form = e.target ;
@@ -54,7 +57,7 @@ form.reset();
 </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Email</label>
-  <input type="email" name='email' className="input w-full" placeholder="Enter Your Email" />
+  <input type="email" name='email' value={user ? `${user?.email}`: " "} readOnly className="input w-full" placeholder="Enter Your Email" />
 
 </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">

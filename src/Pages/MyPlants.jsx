@@ -5,11 +5,13 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/AuthContext';
 
 
+
 const MyPlants = () => {
      const {user} = use(AuthContext);
    
      const [userData, setUserData] = useState([]);
-     console.log(userData)
+    //  const [remainingPLant, setRemainingPlant] = useState(userData)
+    
 
      useEffect(() => {
       if(user?.email){
@@ -17,14 +19,14 @@ const MyPlants = () => {
       .then(res => res.json())
       .then(data => {
         setUserData(data);
-        console.log(data)
       })
       }  
      }, [user])
 
 
 
-    const handleDelete = () =>{
+    const handleDelete = id =>{
+
         Swal.fire({
   title: "Are you sure?",
   text: "You won't be able to revert this!",
@@ -35,11 +37,26 @@ const MyPlants = () => {
   confirmButtonText: "Yes, delete it!"
 }).then((result) => {
   if (result.isConfirmed) {
-    Swal.fire({
-      title: "Deleted!",
-      text: "Your Plant has been deleted.",
-      icon: "success"
-    });
+
+     fetch(`http://localhost:3000/plants/${id}`,{
+                    method: 'DELETE'
+                } )
+     .then(res => res.json())
+     .then(data => {
+      if (data.deletedCount) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your Plant has been deleted.",
+                                icon: "success"
+                            });
+                          }
+     })
+
+
+      const remainingPlants = userData.filter(p => p._id !== id);
+      console.log(remainingPlants)
+     setUserData(remainingPlants);
+    
   }
 });
     }
@@ -87,7 +104,7 @@ const MyPlants = () => {
           <Link to='/updatePlant/:id'>
          <button className="btn py-6 btn-md  text-white bg-[#0EA106] ">Update Plant</button></Link>
           
-             <button   onClick={handleDelete} className="btn py-6 text-white bg-[#0EA106] btn-md">Delete Plant</button>
+             <button   onClick={() => handleDelete(plant._id)} className="btn py-6 text-white bg-[#0EA106] btn-md">Delete Plant</button>
              
             
           
