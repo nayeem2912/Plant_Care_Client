@@ -1,17 +1,39 @@
 import { format } from 'date-fns';
 import React from 'react';
+import { useLoaderData } from 'react-router';
 import Swal from 'sweetalert2';
 
 const UpdatePlant = () => {
 
-    const handleUpdate = () =>{
-       Swal.fire({
-  position: "top-end",
+  const {plantName, category, care, health, watering, lastDate, nextDate, _id, email, name,  description, photo} = useLoaderData();
+
+    const handleUpdate = e =>{
+      e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const updatedPlant= Object.fromEntries(formData.entries());
+        
+
+        fetch(`http://localhost:3000/plants/${_id}`, {
+              method: 'PUT', 
+            headers: {
+                'content-type': 'application/json'
+            }, 
+            body: JSON.stringify(updatedPlant)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount){
+               Swal.fire({
+  title: "Plant updated successfully!",
   icon: "success",
-  title: "Your work has been saved",
-  showConfirmButton: false,
-  timer: 5500
+  draggable: true
 });
+            }
+        })
+
+
+
 
     }
     return (
@@ -26,105 +48,105 @@ const UpdatePlant = () => {
                 <div className='grid grid-cols-1  md:grid-cols-2 gap-6 '>
                     <fieldset className="fieldset bg-base-200 border border-base-200 rounded-box p-4">
   <label className="label font-bold text-lg">Plant Name</label>
-  <input type="text" name='name' className="input w-full" placeholder="Enter Plant Name" />
+  <input type="text" name='name' defaultValue={plantName} className="input w-full" placeholder="Enter Plant Name" />
 
 </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Image</label>
-  <input type="text" name='photo' className="input w-full" placeholder="Enter Plant Image" />
+  <input type="text" name='photo' defaultValue={photo} className="input w-full" placeholder="Enter Plant Image" />
 
 </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Email</label>
-  <input type="email" name='email' className="input w-full" placeholder="Enter Your Email" />
+  <input type="email" name='email' defaultValue={email} className="input w-full" placeholder="Enter Your Email" />
 
 </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Name</label>
-  <input type="text" name='name' className="input w-full" placeholder="Enter Your Name" />
+  <input type="text" name='name' defaultValue={name} className="input w-full" placeholder="Enter Your Name" />
 
 </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
                       <label className="label font-bold text-lg">Category</label>
-  <select name='category' defaultValue="Enter Plant Category" className="select w-full">
+  <select name='category' defaultValue={category} className="select w-full">
   <option  disabled={true}>Enter Plant Category</option>
-  <option value="succulent">Succulent</option>
-  <option value="fern">Fern</option>
-  <option value="flowering">Flowering</option>
-  <option value="herb">Herb</option>
-  <option value="cactus">Cactus</option>
-  <option value="indoor">Indoor</option>
-  <option value="outdoor">Outdoor</option>
-  <option value="air-purifying">Air Purifying</option>
-  <option value="bonsai">Bonsai</option>
-  <option value="climber">Climber</option>
-  <option value="foliage">Foliage</option>
-  <option value="aquatic">Aquatic</option>
+  <option value="Succulent">Succulent</option>
+  <option value="Fern">Fern</option>
+  <option value="Flowering">Flowering</option>
+  <option value="Herb">Herb</option>
+  <option value="Cactus">Cactus</option>
+  <option value="Indoor">Indoor</option>
+  <option value="Outdoor">Outdoor</option>
+  <option value="Air-purifying">Air Purifying</option>
+  <option value="Bonsai">Bonsai</option>
+  <option value="Climber">Climber</option>
+  <option value="Foliage">Foliage</option>
+  <option value="Aquatic">Aquatic</option>
 </select>
 
 </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Care Level</label>
- <select name='care' defaultValue="Enter Plant Care Level" className="select w-full">
+ <select name='care' defaultValue={care} className="select w-full">
   <option  disabled={true}>Enter Plant Care Level</option>
-   <option value="very-easy">Very Easy (low maintenance)</option>
-  <option value="easy">Easy</option>
-  <option value="moderate">Moderate</option>
-  <option value="challenging">Challenging</option>
-  <option value="difficult">Difficult (high maintenance)</option>
-  <option value="expert">Expert Only</option>
+   <option value="Very-easy">Very Easy (low maintenance)</option>
+  <option value="Easy">Easy</option>
+  <option value="Moderate">Moderate</option>
+  <option value="Challenging">Challenging</option>
+  <option value="Difficult">Difficult (high maintenance)</option>
+  <option value="Expert">Expert Only</option>
 </select>
 
 </fieldset>
 
 <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Health Status</label>
-   <select name='watering' defaultValue="Enter Plant Health Status" className="select w-full">
+   <select name='watering' defaultValue={health} className="select w-full">
   <option  disabled={true}>Enter Plant Health Status </option>
-    <option value="healthy">Healthy</option>
-  <option value="thriving">Thriving</option>
-  <option value="new-growth">Showing New Growth</option>
-  <option value="minor-issues">Minor Issues (e.g., yellow leaves)</option>
-  <option value="recovering">Recovering from Stress</option>
-  <option value="needs-care">Needs Attention</option>
-  <option value="pest-affected">Pest-Affected</option>
-  <option value="diseased">Diseased</option>
-  <option value="dormant">Dormant (not actively growing)</option>
+    <option value="Healthy">Healthy</option>
+  <option value="Thriving">Thriving</option>
+  <option value="New-growth">Showing New Growth</option>
+  <option value="Minor-issues">Minor Issues (e.g., yellow leaves)</option>
+  <option value="Recovering">Recovering from Stress</option>
+  <option value="Needs-care">Needs Attention</option>
+  <option value="Pest-affected">Pest-Affected</option>
+  <option value="Diseased">Diseased</option>
+  <option value="Dormant">Dormant (not actively growing)</option>
 </select>
   </fieldset>
 
 
   <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Watering Frequency </label>
-  <select name='watering' defaultValue="Enter Plant Watering Frequency" className="select w-full">
+  <select name='watering' defaultValue={watering} className="select w-full">
   <option  disabled={true}>Enter Plant Watering Frequency </option>
-    <option value="daily">Every day</option>
-  <option value="every-2-days">Every 2 days</option>
-  <option value="every-3-days">Every 3 days</option>
-  <option value="twice-a-week">Twice a week</option>
-  <option value="weekly">Once a week</option>
-  <option value="every-10-days">Every 10 days</option>
-  <option value="fortnightly">Every 2 weeks</option>
-  <option value="monthly">Once a month</option>
-  <option value="rarely">Rarely (every 1–2 months)</option>
+    <option value="Every day">Every day</option>
+  <option value="Every-2-days">Every 2 days</option>
+  <option value="Every-3-days">Every 3 days</option>
+  <option value="Twice-a-week">Twice a week</option>
+  <option value="Once a week">Once a week</option>
+  <option value="Every-10-days">Every 10 days</option>
+  <option value="Every 2 weeks">Every 2 weeks</option>
+  <option value="Once a month">Once a month</option>
+  <option value="Rarely">Rarely (every 1–2 months)</option>
 </select>
 
 </fieldset>
   <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Last Watered Date</label>
-  <input type="date" name='last-watering-date' className="input w-full" placeholder="Enter Photo URL" />
+  <input type="date" defaultValue={lastDate} name='last-watering-date' className="input w-full" placeholder="Enter Photo URL" />
   </fieldset>
 
 
   <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Next Watering Date </label>
-  <input type="date" name='next-watering-date' className="input w-full" placeholder="Enter Photo URL" />
+  <input type="date" defaultValue={nextDate} name='next-watering-date' className="input w-full" placeholder="Enter Photo URL" />
   </fieldset>
 
 
   <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
   <label className="label font-bold text-lg">Description</label>
-  <input type="text" name='description' className="input w-full" placeholder="Enter Plant Details" />
+  <input type="text" defaultValue={description} name='description' className="input w-full" placeholder="Enter Plant Details" />
   </fieldset>
                    
                 </div>

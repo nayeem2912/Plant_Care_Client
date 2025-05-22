@@ -10,7 +10,7 @@ const AllPlant = () => {
             <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
-    <thead>
+    <thead className='bg-green-400'>
       <tr>
         <th>
           No

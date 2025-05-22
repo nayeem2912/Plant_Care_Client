@@ -53,6 +53,8 @@ import Loading from "../components/Loading";
         },
         {
              path:'/updatePlant/:id',
+              hydrateFallbackElement: <Loading></Loading> ,
+            loader: ({params}) => fetch(`http://localhost:3000/plants/${params.id}`) ,
             Component:UpdatePlant,
         }
     ]

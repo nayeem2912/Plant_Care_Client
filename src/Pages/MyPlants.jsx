@@ -65,7 +65,7 @@ const MyPlants = () => {
             <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
-    <thead>
+    <thead className='bg-green-400'>
       <tr>
         <th>
           No
@@ -101,7 +101,7 @@ const MyPlants = () => {
         <td>{plant.lastDate}</td>
         <td>{plant.watering}</td>
         <th>
-          <Link to='/updatePlant/:id'>
+          <Link to={`/updatePlant/${plant._id}`}>
          <button className="btn py-6 btn-md  text-white bg-[#0EA106] ">Update Plant</button></Link>
           
              <button   onClick={() => handleDelete(plant._id)} className="btn py-6 text-white bg-[#0EA106] btn-md">Delete Plant</button>
