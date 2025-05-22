@@ -129,7 +129,7 @@ const Navbar = () => {
        
         <li><a onClick={handleLogOut} className='font-bold text-red-500'>Logout</a></li>
       </ul>
-    </div>) : (<div> <NavLink to='/register'> <button data-tooltip-id="my-tooltip-1" className="btn bg-[#0EA106] text-white">Register</button></NavLink>
+    </div>) : (<div> <NavLink to='/register'> <button data-tooltip-id="my-tooltip-1" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl bg-[#0EA106] text-white">Register</button></NavLink>
     <ReactTooltip
                         id="my-tooltip-1"
                         place="bottom"
@@ -137,7 +137,7 @@ const Navbar = () => {
                         content="Register Now"
                       /> 
 
-          <NavLink to='/login'> <button data-tooltip-id="my-tooltip-3" className="btn bg-[#0EA106] text-white">Login</button> </NavLink>
+          <NavLink to='/login'> <button data-tooltip-id="my-tooltip-3" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl bg-[#0EA106] text-white">Login</button> </NavLink>
           <ReactTooltip
                         id="my-tooltip-3"
                         place="bottom"
