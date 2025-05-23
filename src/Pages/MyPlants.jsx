@@ -101,9 +101,9 @@ const MyPlants = () => {
         <td>{plant.watering}</td>
         <th>
           <Link to={`/updatePlant/${plant._id}`}>
-         <button className="btn py-6 btn-md  text-white bg-[#0EA106] ">Update Plant</button></Link>
+         <button className="btn py-6 btn-md bg-[#0EA106] ">Update Plant</button></Link>
           
-             <button   onClick={() => handleDelete(plant._id)} className="btn py-6 text-white bg-[#0EA106] btn-md">Delete Plant</button>
+             <button   onClick={() => handleDelete(plant._id)} className="btn py-6 text-white bg-red-500 btn-md">Delete Plant</button>
              
             
           
