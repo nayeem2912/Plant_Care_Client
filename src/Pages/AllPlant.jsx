@@ -1,10 +1,25 @@
-import React  from 'react';
+import React, { useState }  from 'react';
 import { Link, useLoaderData } from 'react-router';
 
 
 
 const AllPlant = () => {
   const plants = useLoaderData();
+   const [sortPlants, setSortPlants] = useState(plants);
+  const [sortOption, setSortOption] = useState("");
+
+   const handleChange = (e) => {
+    const type = e.target.value;
+    setSortOption(type);
+
+    let sorted = [...plants];
+
+    if (type === "nextDate") {
+      sorted.sort((a, b) => new Date(a.nextDate) - new Date(b.nextDate));
+    }
+
+    setSortPlants(sorted);
+  };
   
 
  
@@ -13,6 +28,14 @@ const AllPlant = () => {
     return (
          <div className='w-11/12 mx-auto mt-10 mb-28'>
           
+         <div className='flex justify-center items-center  my-4'>
+          <select  value={sortOption} onChange={handleChange} defaultValue="Sort By" className="select font-semibold bg-green-600">
+  <option disabled={true}>Sort By</option>
+   <option  value="">All Plants</option>
+  <option value="nextDate">Next Watering Date</option>
+</select>
+         </div>
+
             <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
@@ -24,15 +47,16 @@ const AllPlant = () => {
         <th>Plants Name</th>
         <th>Category</th>
         <th>Health Status</th>
-        <th>watering frequency</th>
         <th>Care Level</th>
+        <th>watering frequency</th>
+        <th>Next Watering Date</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
 
       {
-        plants.map((plant, index) => <tr key={plant._id}>
+        sortPlants.map((plant, index) => <tr key={plant._id}>
         <th>
          {index + 1}
         </th>
@@ -49,11 +73,14 @@ const AllPlant = () => {
          {plant.category}
         </td>
         <td>{plant.health}</td>
+         <td>
+        {plant.care}
+       </td>
         <td>
           {plant.watering}
         </td>
        <td>
-        {plant.care}
+        {plant.nextDate}
        </td>
         <th>
           <Link to={`/plantDetails/${plant._id}`}>

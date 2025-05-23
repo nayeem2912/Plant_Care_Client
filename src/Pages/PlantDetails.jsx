@@ -8,7 +8,7 @@ const PlantDetails = () => {
         <div className='w-11/12 mx-auto  mt-10  '>
         
 <div className='flex flex-row justify-center items-center'>
-<div className="card flex flex-col md:flex-row  my-11 card-side bg-green-200 shadow-sm">
+<div className="card flex flex-col md:flex-row  my-11 card-side bg-base-300 shadow-sm">
   <figure>
     <img className='p-4 w-80 h-96  '
       src={photo}

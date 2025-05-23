@@ -93,7 +93,7 @@ const Navbar = () => {
 
  
   <svg
-    className="swap-off h-8 w-8 fill-current"
+    className="swap-off h-7 w-7 fill-current"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24">
     <path
@@ -102,7 +102,7 @@ const Navbar = () => {
 
   
   <svg
-    className="swap-on h-8 w-8 fill-current"
+    className="swap-on h-7 w-7 fill-current"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24">
     <path
@@ -111,8 +111,8 @@ const Navbar = () => {
 </label>
 
   {
-    user ? (<div className="dropdown dropdown-end">
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+    user ? (<div  className="dropdown dropdown-end">
+      <div data-tooltip-id="my-tooltip-6" tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
           <img
             alt={user.photoURL}
@@ -129,7 +129,13 @@ const Navbar = () => {
        
         <li><a onClick={handleLogOut} className='font-bold text-red-500'>Logout</a></li>
       </ul>
-    </div>) : (<div> <NavLink to='/register'> <button data-tooltip-id="my-tooltip-1" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl bg-[#0EA106] text-white">Register</button></NavLink>
+      <ReactTooltip
+                        id="my-tooltip-6"
+                        place="bottom"
+                        variant="info"
+                        content={user.displayName}
+                      />
+    </div>) : (<div> <NavLink to='/register'> <button data-tooltip-id="my-tooltip-1" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  bg-[#0EA106] text-white">Register</button></NavLink>
     <ReactTooltip
                         id="my-tooltip-1"
                         place="bottom"
@@ -137,7 +143,7 @@ const Navbar = () => {
                         content="Register Now"
                       /> 
 
-          <NavLink to='/login'> <button data-tooltip-id="my-tooltip-3" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl bg-[#0EA106] text-white">Login</button> </NavLink>
+          <NavLink to='/login'> <button data-tooltip-id="my-tooltip-3" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  bg-[#0EA106] text-white">Login</button> </NavLink>
           <ReactTooltip
                         id="my-tooltip-3"
                         place="bottom"
