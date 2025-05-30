@@ -48,7 +48,7 @@ const UpdatePlant = () => {
                 <div className='grid grid-cols-1  md:grid-cols-2 gap-6 '>
                     <fieldset className="fieldset bg-base-200 border border-base-200 rounded-box p-4">
   <label className="label font-bold text-lg">Plant Name</label>
-  <input type="text" name='name' defaultValue={plantName} className="input w-full" placeholder="Enter Plant Name" />
+  <input type="text" name='plantName' defaultValue={plantName} className="input w-full" placeholder="Enter Plant Name" />
 
 </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
