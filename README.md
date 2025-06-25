@@ -1,13 +1,8 @@
 # 🌿 Plant Care - Smart Gardening & Plant Maintenance
 
-**Live Website:**
- https://plant-care-cb6f6.web.app/
-
-**Client Repository:**
-https://github.com/Programming-Hero-Web-Course4/b11a10-client-side-nayeem2912
-
-**Server Repository:** 
-https://github.com/Programming-Hero-Web-Course4/b11a10-server-side-nayeem2912
+🌐 [Live Website](https://plant-care-cb6f6.web.app/)  
+🔗 [GitHub Repository (Client)](https://github.com/Programming-Hero-Web-Course4/b11a10-client-side-nayeem2912)  
+🔗 [GitHub Repository (Server)](https://github.com/Programming-Hero-Web-Course4/b11a10-server-side-nayeem2912)  
 
 **Plant Care** is a modern full-stack web app created to assist home gardeners with intelligent plant care tools and a clean, responsive user interface.
 
