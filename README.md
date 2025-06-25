@@ -1,13 +1,8 @@
 # 🌿 Plant Care - Smart Gardening & Plant Maintenance
 
-**Live Website:**
- https://plant-care-cb6f6.web.app/
-
-**Client Repository:**
-https://github.com/Programming-Hero-Web-Course4/b11a10-client-side-nayeem2912
-
-**Server Repository:** 
-https://github.com/Programming-Hero-Web-Course4/b11a10-server-side-nayeem2912
+🌐 [Live Website](https://plant-care-cb6f6.web.app/)  
+🔗 [GitHub Repository (Client)](https://github.com/Programming-Hero-Web-Course4/b11a10-client-side-nayeem2912)  
+🔗 [GitHub Repository (Server)](https://github.com/Programming-Hero-Web-Course4/b11a10-server-side-nayeem2912)  
 
 **Plant Care** is a modern full-stack web app created to assist home gardeners with intelligent plant care tools and a clean, responsive user interface.
 
@@ -36,13 +31,22 @@ https://github.com/Programming-Hero-Web-Course4/b11a10-server-side-nayeem2912
 ## ⚙️ Tech Stack
 
 ### 🖥 Frontend
-- **React 19**
-- **Tailwind CSS + DaisyUI**
-- **React Router v7**
-- **React Slick + Slick Carousel**
-- **React Tooltip**
-- **React Hot Toast**
-- **date-fns**
+| Package Name      | Version  |
+| ----------------- | -------- |
+| @tailwindcss/vite | ^4.1.7   |
+| daisyui           | ^5.0.35  |
+| date-fns          | ^4.1.0   |
+| firebase          | ^11.8.0  |
+| react             | ^19.0.0  |
+| react-dom         | ^19.0.0  |
+| react-hot-toast   | ^2.5.2   |
+| react-router      | ^7.6.0   |
+| react-slick       | ^0.30.3  |
+| react-tooltip     | ^5.28.1  |
+| slick-carousel    | ^1.8.1   |
+| sweetalert2       | ^11.21.2 |
+| tailwindcss       | ^4.1.7   |
+
 
 ### 🔙 Backend
 - **Firebase (Authentication, Firestore Database, Hosting)**
