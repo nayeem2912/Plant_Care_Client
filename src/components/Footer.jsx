@@ -1,13 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router';
+import Logo from './Logo';
 
 const Footer = () => {
     return (
        <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">
   <aside>
-   <img src="/assets/Group.png" alt="" />
+   <Logo></Logo>
     <div className='font-semibold'>
-      <p className='text-3xl'>Plant Care</p>
       <br />
       Contact: faruknayeem2912@gmail.com 
       <br />

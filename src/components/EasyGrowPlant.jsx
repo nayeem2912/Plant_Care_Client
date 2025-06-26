@@ -3,7 +3,7 @@ import React from 'react';
 const EasyGrowPlant = () => {
     return (
         <div>
-              <div className='mt-10 mb-24 w-11/12 mx-auto'>
+              <div className='mt-10 pb-10 w-11/12 mx-auto'>
 
             <div className='text-center space-y-4'>
                 <h1 className='text-3xl text-[#0EA106] font-bold'>Easy-Grow Stars</h1>

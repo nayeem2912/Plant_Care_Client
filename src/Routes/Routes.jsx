@@ -15,6 +15,8 @@ import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import Loading from "../components/Loading";
 import PrivateRoute from "../Provider/PrivateRoute";
+import DashboardLayout from "../Layout/DashboardLayout";
+import Statistics from "../components/Statistics";
 
 
 
@@ -32,32 +34,21 @@ import PrivateRoute from "../Provider/PrivateRoute";
             loader: () => fetch('https://mango-server-green.vercel.app/plants/latest'),
             Component:Home,
         },
-        {
-            path:'/addPlant',
-            element:<PrivateRoute><AddPlant></AddPlant> </PrivateRoute> ,
-        },
+        
         {
             path:'/allPlant',
             hydrateFallbackElement: <Loading></Loading> , 
             loader: () => fetch('https://mango-server-green.vercel.app/plants') ,
             Component:AllPlant,
         },
-        {
-             path:'/myPlant',
-            element:<PrivateRoute> <MyPlants></MyPlants> </PrivateRoute>,
-        },
+        
         {
             path:'/plantDetails/:id',
             hydrateFallbackElement: <Loading></Loading> ,
             loader: ({params}) => fetch(`https://mango-server-green.vercel.app/plants/${params.id}`) ,
             element: <PrivateRoute> <PlantDetails></PlantDetails> </PrivateRoute>,
         },
-        {
-             path:'/updatePlant/:id',
-              hydrateFallbackElement: <Loading></Loading> ,
-            loader: ({params}) => fetch(`https://mango-server-green.vercel.app/plants/${params.id}`) ,
-            Component:UpdatePlant,
-        }
+        
     ]
   },
   {
@@ -67,5 +58,46 @@ import PrivateRoute from "../Provider/PrivateRoute";
   {
    path:'/register',
    Component: Register
-  }
+  },
+   {
+    path: '/dashboard',
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        index: true,
+        hydrateFallbackElement: <Loading></Loading> , 
+        loader: () => fetch('https://mango-server-green.vercel.app/plants') ,
+        element: (
+          <PrivateRoute>
+            <Statistics />
+          </PrivateRoute>
+        ),
+      },
+      {
+            path:'addPlant',
+            element:(<PrivateRoute><AddPlant></AddPlant> </PrivateRoute>) ,
+        },
+        {
+             path:'myPlant',
+            element:<PrivateRoute> <MyPlants></MyPlants> </PrivateRoute>,
+        },
+        {
+             path:'updatePlant/:id',
+              hydrateFallbackElement: <Loading></Loading> ,
+            loader: ({params}) => fetch(`https://mango-server-green.vercel.app/plants/${params.id}`) ,
+            Component:UpdatePlant,
+        },
+        {
+            path:'allPlant',
+            Component:AllPlant,
+        },
+        
+      
+      
+    ],
+  },
 ]);

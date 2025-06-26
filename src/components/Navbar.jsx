@@ -4,6 +4,7 @@ import { Tooltip as ReactTooltip } from "react-tooltip";
 import { AuthContext } from '../Provider/AuthContext';
 import toast from 'daisyui/components/toast';
 import Swal from 'sweetalert2';
+import Logo from './Logo';
 
 
 const Navbar = () => {
@@ -33,7 +34,7 @@ const Navbar = () => {
        })
   }
     return (
-        <div className='bg-base-100 shadow-sm' >
+        <div className='bg-base-100  z-50 sticky top-0 shadow-sm' >
            <div className="navbar  w-11/12 mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
@@ -49,16 +50,14 @@ const Navbar = () => {
             <li>
                 <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/allPlant' >All Plants</NavLink>
             </li>
+           
             <li>
-                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/addPlant' >Add Plant </NavLink>
-            </li>
-            <li>
-                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/myPlant' >My Plants</NavLink>
+                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/dashboard' >DashBoard</NavLink>
             </li>
       </ul>
     </div>
     
-      <a data-tooltip-id="my-tooltip-2" className=" font-bold text-3xl">Plant <span className='text-[#0EA106]'>Care</span> </a>
+      <a data-tooltip-id="my-tooltip-2" className=" font-bold text-3xl"><Logo></Logo> </a>
       <ReactTooltip
         id="my-tooltip-2"
         place="bottom"
@@ -77,10 +76,7 @@ const Navbar = () => {
                 <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/allPlant' >All Plants</NavLink>
             </li>
             <li>
-                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/addPlant' >Add Plant </NavLink>
-            </li>
-            <li>
-                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/myPlant' >My Plants</NavLink>
+                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/dashboard' >DashBoard</NavLink>
             </li>
     </ul>
   </div>

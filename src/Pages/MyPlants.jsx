@@ -1,5 +1,7 @@
 import React, { use, useEffect, useState } from 'react';
 import { Link } from 'react-router';
+import { MdModeEditOutline } from "react-icons/md";
+import { RiDeleteBinLine } from "react-icons/ri";
 
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/AuthContext';
@@ -99,14 +101,16 @@ const MyPlants = () => {
         <td>{plant.health}</td>
         <td>{plant.lastDate}</td>
         <td>{plant.watering}</td>
-        <th>
-          <Link to={`/updatePlant/${plant._id}`}>
-         <button className="btn py-6 btn-md bg-[#0EA106] ">Update Plant</button></Link>
+        
+         <th className="tooltip" data-tip=" Update Your Package">
+            <Link to={`/dashboard/updatePlant/${plant._id}`}>
+<button className="btn bg-[#0EA106] text-white btn-square  btn-md"><MdModeEditOutline  size={25}/></button>
+            </Link>
           
-             <button   onClick={() => handleDelete(plant._id)} className="btn py-6 text-white bg-red-500 btn-md">Delete Plant</button>
-             
-            
-          
+        </th>
+
+        <th className="tooltip" data-tip="Delete Your Package">
+            <button onClick={() => handleDelete(plant._id)} className="btn bg-red-700 text-white btn-square  btn-md"><RiDeleteBinLine size={25}/></button>
         </th>
          
       </tr>)

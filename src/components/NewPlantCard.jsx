@@ -2,24 +2,27 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const NewPlantCard = ({plant}) => {
-    const {photo, plantName, description, _id} = plant || {}
+    const {photo, plantName, index,description, _id} = plant || {}
     return (
-        <div className=''>
-    <div className="card  bg-base-300 card-xl  shadow-sm">
-  <div className="card-body">
-  <div className='flex justify-center'>
-    <img className='w-50 h-50 rounded-xl ' src={photo} alt="" />
-    </div>
-    <h2 className="font-bold text-[#0EA106] text-center text-2xl">{plantName}</h2>
-    <p className=' text-center font-medium'>{description}</p>
-   <Link to={`/plantDetails/${_id}`}>
-    <button className="btn bg-[#0EA106] ml-24 md:ml-18 text-white btn-xs border-none sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl">Plant Details</button>
-    </Link>
-
-  </div>
-</div>
-
-        </div>
+         <div
+            key={index}
+            className="card bg-base-100 shadow-md"
+            data-aos="zoom-in"
+            data-aos-delay={`${index * 100}`}
+          >
+            <figure>
+              <img className="w-full h-[120px] md:h-[160px] lg:h-[200px] object-cover rounded" src={photo} alt="" />
+            </figure>
+            <div className="card-body">
+              <h3 className="text-lg font-semibold">{plantName}</h3>
+              <p className="text-sm text-gray-600">{description}</p>
+              <Link  to={`/plantDetails/${_id}`}>
+              <button className="btn w-full btn-sm btn-outline hover:text-white hover:bg-[#0EA106] mt-2">
+                View Details
+              </button>
+              </Link>
+            </div>
+          </div>
     );
 };
 
