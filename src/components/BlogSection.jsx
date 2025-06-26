@@ -1,5 +1,6 @@
 // src/components/BlogSection.jsx
 import React from "react";
+import { Link } from "react-router";
 
 const BlogSection = () => {
   const blogs = [
@@ -48,14 +49,14 @@ const BlogSection = () => {
   return (
     <section className="py-10 px-4 max-w-7xl mx-auto" data-aos="fade-up">
       <h2 className="text-3xl font-bold text-center mb-4">From Our Blog</h2>
-      <p className="text-center text-gray-600 mb-6">
+      <p className="text-center  mb-6">
         Learn tips, tricks, and inspiration to grow your indoor jungle.
       </p>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {blogs.map((blog, index) => (
           <div
             key={index}
-            className="card bg-base-100 shadow-md"
+            className="card  bg-gray-50 border-base-300 text-gray-800 shadow-md"
             data-aos="zoom-in"
             data-aos-delay={`${index * 100}`}
           >
@@ -64,9 +65,12 @@ const BlogSection = () => {
             <div className="card-body">
               <h3 className="text-lg font-semibold">{blog.title}</h3>
               <p className="text-sm text-gray-600">{blog.excerpt}</p>
-              <button className="btn btn-sm btn-outline btn-primary mt-2">
+              <Link to='/blog'>
+              <button className="btn w-full btn-sm btn-outline hover:text-white hover:bg-[#0EA106] mt-2">
                 Read More
               </button>
+              </Link>
+              
             </div>
           </div>
         ))}

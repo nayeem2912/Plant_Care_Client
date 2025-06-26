@@ -56,10 +56,10 @@ const CustomerStories = () => {
   return (
     <section className="py-10 px-4 max-w-7xl mx-auto" data-aos="fade-up">
       <h2 className="text-3xl font-bold text-center mb-4">Customer Stories</h2>
-      <p className="text-center text-gray-500 mb-6">Real experiences from plant lovers across Bangladesh.</p>
+      <p className="text-center  mb-6">Real experiences from plant lovers across Bangladesh.</p>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {stories.map((s, index) => (
-          <div key={index} className="card bg-base-100 shadow-md" data-aos="zoom-in" data-aos-delay={`${index * 100}`}>
+          <div key={index} className="card  bg-gray-50 border-base-300 text-gray-800 shadow-md" data-aos="zoom-in" data-aos-delay={`${index * 100}`}>
             <figure><img className="w-full h-[120px] md:h-[160px] lg:h-[200px] object-cover rounded" src={s.img} alt={s.name} /></figure>
             <div className="card-body">
               <h3 className="text-lg font-semibold">{s.name}</h3>

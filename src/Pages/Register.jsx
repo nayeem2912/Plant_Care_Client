@@ -3,6 +3,8 @@ import { Link,  useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthContext';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const Register = () => {
   
@@ -77,23 +79,24 @@ const Register = () => {
   }
 
     return (
-        <div className='p-10'>
-             <div className='flex  justify-center items-center min-h-screen'>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-xl py-8">
+        <div className=''>
+          <Navbar></Navbar>
+             <div className='flex my-4  justify-center items-center min-h-screen'>
+        <div className="card bg-gray-50 border-base-300 text-gray-800 w-full max-w-sm shrink-0 shadow-xl py-8">
         <h2 className="font-semibold text-2xl text-center">
       Register your account
     </h2>
   <form onSubmit={handleRegister}  className="card-body">
     <fieldset className="fieldset">
-      <label className="label font-bold text-white text-xl">Name</label>
-      <input type="text" name='name' className="input" placeholder="Name" />
+      <label className="label font-bold text-gray-800 text-xl">Name</label>
+      <input type="text" name='name' className="input bg-gray-50 border-base-300 text-gray-800" placeholder="Name " />
       {
         nameError && <p className="text-xs text-black">{nameError}</p>
       }
-      <label className="label font-bold text-white text-xl">Photo URL</label>
-      <input type="text" name='photo' className="input" placeholder="Photo Url" />
-      <label className="label font-bold text-white text-xl">Email</label>
-      <label className="input validator">
+      <label className="label font-bold text-gray-800 text-xl">Photo URL</label>
+      <input type="text" name='photo' className="input bg-gray-50 border-base-300 text-gray-800" placeholder="Photo Url" />
+      <label className="label font-bold text-gray-800 text-xl">Email</label>
+      <label className="input validator bg-gray-50 border-base-300 text-gray-800">
   <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <g
       strokeLinejoin="round"
@@ -106,12 +109,12 @@ const Register = () => {
       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
     </g>
   </svg>
-  <input type="email" name='email' placeholder="mail@site.com" required />
+  <input type="email" className='' name='email' placeholder="mail@site.com" required />
 </label>
 <div className="validator-hint hidden">Enter valid email address</div> 
 
-<label className="label font-bold text-white text-xl">Password</label>
-<label className="input validator">
+<label className="label font-bold text-gray-800 text-xl">Password</label>
+<label className="input validator bg-gray-50 border-base-300 text-gray-800">
   <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <g
       strokeLinejoin="round"
@@ -159,6 +162,7 @@ const Register = () => {
   </form>
 </div>
     </div>
+    <Footer></Footer>
         </div>
     );
 };

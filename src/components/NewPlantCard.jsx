@@ -6,7 +6,7 @@ const NewPlantCard = ({plant}) => {
     return (
          <div
             key={index}
-            className="card bg-base-100 shadow-md"
+            className="card  bg-gray-50 border-base-300 text-gray-800 shadow-md"
             data-aos="zoom-in"
             data-aos-delay={`${index * 100}`}
           >

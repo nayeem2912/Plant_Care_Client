@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthContext';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const LogIn = () => {
   const {signIn, googleSignIn, forgetPass} = use(AuthContext);
@@ -74,15 +76,16 @@ const LogIn = () => {
 
     return (
         <div>
-              <div className='max-w-xs  mx-auto mt-14 lg:mt-36'>
-            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <Navbar></Navbar>
+              <div className='max-w-xs  mx-auto   my-10'>
+            <div className="card bg-gray-50 border-base-300 text-gray-800 w-full max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
        <form onSubmit={handleLogin} >
        <fieldset className="fieldset">
-          <label className="label font-bold text-white text-xl">Email</label>
-          <input type="email" ref={emailRef}  name='email' className="input" placeholder="Email" required />
-          <label className="label font-bold text-white text-xl">Password</label>
-          <input type="password" name='password' className="input" placeholder="Password" required />
+          <label className="label font-bold text-gray-800 text-xl">Email</label>
+          <input type="email" ref={emailRef}  name='email' className="input bg-gray-50 border-base-300 text-gray-800" placeholder="Email" required />
+          <label className="label font-bold  text-gray-800 text-xl">Password</label>
+          <input type="password" name='password' className="input bg-gray-50 border-base-300 text-gray-800" placeholder="Password" required />
           <div ><a onClick={handleForget} className="link link-hover">Forgot password?</a></div>
           <button type='submit' className="btn btn-neutral mt-4">Login</button>
         </fieldset>
@@ -99,6 +102,7 @@ const LogIn = () => {
      
     </div>
         </div>
+        <Footer></Footer>
         </div>
     );
 };

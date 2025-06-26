@@ -58,14 +58,14 @@ const PlantOfMonth = () => {
   return (
     <section className="py-10 px-4 max-w-7xl mx-auto" data-aos="fade-up">
       <h2 className="text-3xl font-bold text-center mb-4">Plant of the Month</h2>
-      <p className="text-center text-gray-600 mb-6">
+      <p className="text-center  mb-6">
         Discover our special plant picks for each month of the year.
       </p>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {featuredPlants.map((plant, index) => (
           <div
             key={index}
-            className="card bg-base-100 shadow-md"
+            className="card  bg-gray-50 border-base-300 text-gray-800 shadow-md"
             data-aos="zoom-in"
             data-aos-delay={`${index * 100}`}
           >

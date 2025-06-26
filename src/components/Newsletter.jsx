@@ -16,7 +16,7 @@ const Newsletter = () => {
   return (
     <section className="py-10 px-4 max-w-3xl mx-auto text-center" data-aos="fade-up">
       <h2 className="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
-      <p className="text-gray-600 mb-6">
+      <p className=" mb-6">
         Get the latest plant care tips, offers, and updates straight to your inbox.
       </p>
       {submitted ? (
@@ -31,7 +31,7 @@ const Newsletter = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn bg-green-600">
             Subscribe
           </button>
         </form>

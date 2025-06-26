@@ -10,7 +10,7 @@ const PlantDetails = () => {
   
   
     return (      
-         <div className="max-w-4xl my-10 mx-auto p-6  bg-base-100 shadow-lg rounded-xl">
+         <div className="max-w-4xl my-10 mx-auto p-6  bg-gray-50 border-base-300 text-gray-800 shadow-lg rounded-xl">
       <div className="flex flex-col md:flex-row gap-6">
         
         <div className="w-full md:w-1/2">

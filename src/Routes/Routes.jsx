@@ -17,6 +17,9 @@ import Loading from "../components/Loading";
 import PrivateRoute from "../Provider/PrivateRoute";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Statistics from "../components/Statistics";
+import Blog1 from "../components/Blog/Blog1";
+import ContactPage from "../components/Contact/ContactPage";
+import AboutUs from "../Pages/AboutUs";
 
 
 
@@ -48,7 +51,18 @@ import Statistics from "../components/Statistics";
             loader: ({params}) => fetch(`https://mango-server-green.vercel.app/plants/${params.id}`) ,
             element: <PrivateRoute> <PlantDetails></PlantDetails> </PrivateRoute>,
         },
-        
+        {
+          path:'/blog',
+          Component:Blog1
+        },
+        {
+          path:'/contact',
+          Component:ContactPage
+        },
+        {
+          path:'/about',
+          Component:AboutUs
+        }
     ]
   },
   {

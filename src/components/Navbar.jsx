@@ -54,10 +54,19 @@ const Navbar = () => {
             <li>
                 <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/dashboard' >DashBoard</NavLink>
             </li>
+            <li>
+                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/blog' >Blogs</NavLink>
+            </li>
+            <li>
+                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/contact' >Contact Us</NavLink>
+            </li>
+            <li>
+                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/about' >About Us</NavLink>
+            </li>
       </ul>
     </div>
     
-      <a data-tooltip-id="my-tooltip-2" className=" font-bold text-3xl"><Logo></Logo> </a>
+      <a data-tooltip-id="my-tooltip-2" className=" "><Logo></Logo> </a>
       <ReactTooltip
         id="my-tooltip-2"
         place="bottom"
@@ -77,6 +86,16 @@ const Navbar = () => {
             </li>
             <li>
                 <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/dashboard' >DashBoard</NavLink>
+            </li>
+            <li>
+                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/blog' >Blogs</NavLink>
+            </li>
+
+             <li>
+                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/contact' >Contact</NavLink>
+            </li>
+             <li>
+                <NavLink className={({isActive}) =>(isActive? 'text-[#0EA106] font-semibold text-xl underline':'text-xl')} to='/about' >About Us</NavLink>
             </li>
     </ul>
   </div>
@@ -131,15 +150,9 @@ const Navbar = () => {
                         variant="info"
                         content={user.displayName}
                       />
-    </div>) : (<div> <NavLink to='/register'> <button data-tooltip-id="my-tooltip-1" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  bg-[#0EA106] text-white">Register</button></NavLink>
-    <ReactTooltip
-                        id="my-tooltip-1"
-                        place="bottom"
-                        variant="info"
-                        content="Register Now"
-                      /> 
+    </div>) : (<div>  
 
-          <NavLink to='/login'> <button data-tooltip-id="my-tooltip-3" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  bg-[#0EA106] text-white">Login</button> </NavLink>
+          <NavLink to='/login'> <button data-tooltip-id="my-tooltip-3" className="btn btn-xs sm:btn-sm md:btn-md  bg-[#0EA106] text-white">Login</button> </NavLink>
           <ReactTooltip
                         id="my-tooltip-3"
                         place="bottom"
